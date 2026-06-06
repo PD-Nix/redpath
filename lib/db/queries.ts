@@ -1,12 +1,27 @@
+// lib/db/queries.ts
 import { db } from './index';
-import { plants } from './schema';
+import { products, plants } from './schema';
+import { eq, and } from 'drizzle-orm';
 
 export async function getFeaturedProducts() {
-  try {
-    const allPlants = await db.select().from(plants).limit(4);
-    return { allPlants };
-  } catch (error) {
-    console.error("Error cargando productos:", error);
-    return { allPlants: [] };
-  }
+  const allPlants = await db
+    .select({
+      id: products.id,
+      name: products.name,
+      description: products.description,
+      url_photo: products.urlPhoto,
+      price: products.price,
+      difficulty: plants.difficulty,
+    })
+    .from(products)
+    .innerJoin(plants, eq(products.id, plants.productId))
+    .where(
+      and(
+        eq(products.productType, 'plant'),
+        eq(products.isActive, true)
+      )
+    )
+    .limit(3);
+
+  return { allPlants };
 }
