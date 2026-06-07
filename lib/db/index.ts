@@ -1,7 +1,8 @@
 import { drizzle } from 'drizzle-orm/better-sqlite3';
 import Database from 'better-sqlite3';
 import * as schema from './schema';
+import path from 'path';
 
-// Usar una ruta absoluta o asegurar que apunte a la raíz
-const sqlite = new Database('data/database.db'); 
+const dbPath = path.join(process.cwd(), 'data', 'database.db');
+const sqlite = new Database(dbPath);
 export const db = drizzle(sqlite, { schema });
