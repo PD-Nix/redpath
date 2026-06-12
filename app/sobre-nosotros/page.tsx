@@ -91,9 +91,9 @@ export default function SobreNosotrosPage() {
         <h2 className="text-2xl font-serif text-stone-800 mb-6">Nuestro equipo</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {[
-            { name: 'Dra. Valentina Ospina', role: 'Botánica y fundadora', emoji: '👩‍🔬' },
-            { name: 'Arq. Mauricio Palomino', role: 'Paisajismo y diseño', emoji: '👨‍🎨' },
-            { name: 'Luis Ángel Orozco', role: 'Vivero y logística', emoji: '🧑‍🌾' },
+            { name: 'Pedro Eli Diaz Olarte', role: 'Freelancer', emoji: '💻' },
+            { name: 'Juan Francisco Cantillo Perez', role: 'Freelancer', emoji: '💻' },
+            { name: 'Pedro Luis Carrascal Betin', role: 'Freelancer', emoji: '💻' },
           ].map((member) => (
             <div key={member.name} className="flex items-center gap-4 bg-white rounded-2xl p-4 border border-stone-100 shadow-sm">
               <div className="text-4xl leading-none flex-shrink-0">{member.emoji}</div>

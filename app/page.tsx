@@ -109,7 +109,7 @@ export default async function HomePage() {
       <section className="bg-stone-900 text-stone-100 py-16 px-6 text-center">
         <h2 className="text-2xl font-serif mb-3 text-green-400">¿Dudas sobre cuál elegir?</h2>
         <p className="mb-8 opacity-80 max-w-md mx-auto">
-          Escríbenos y un experto botánico te asesorará en minutos. Gratis, sin compromisos.
+          Escríbenos y te brindaremos asesoría en minutos. Gratis, sin compromisos.
         </p>
         <a
           href={waUrl}
