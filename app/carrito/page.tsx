@@ -66,10 +66,10 @@ export default function CarritoPage() {
             return (
               <div
                 key={item.id}
-                className="flex gap-4 bg-white rounded-2xl p-4 border border-stone-100 shadow-sm"
+                className="flex flex-col sm:flex-row gap-4 bg-white rounded-2xl p-4 border border-stone-100 shadow-sm"
               >
                 {/* Image */}
-                <div className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                <div className="relative w-full sm:w-20 h-56 sm:h-20 rounded-xl overflow-hidden flex-shrink-0">
                   <Image
                     src={item.urlPhoto}
                     alt={item.name}
@@ -132,7 +132,7 @@ export default function CarritoPage() {
 
         {/* Summary */}
         <div className="lg:col-span-1">
-          <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm sticky top-24">
+          <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm lg:sticky lg:top-24">
             <h2 className="font-bold text-stone-800 text-lg mb-4">Resumen</h2>
 
             <div className="flex justify-between text-sm text-stone-600 mb-2">

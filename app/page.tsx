@@ -10,8 +10,8 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen font-sans">
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center justify-center p-6 bg-gradient-to-b from-green-50 to-stone-50">
-        <div className="z-10 bg-white/80 backdrop-blur-md p-10 rounded-3xl border border-white/30 shadow-2xl max-w-2xl text-center">
+      <section className="relative min-h-[60vh] flex items-center justify-center px-4 py-12 sm:px-6 sm:py-16 bg-gradient-to-b from-green-50 to-stone-50">
+        <div className="z-10 bg-white/80 backdrop-blur-md p-8 sm:p-10 rounded-3xl border border-white/30 shadow-2xl max-w-xl w-full text-center">
           <span className="inline-block text-green-700 font-bold uppercase tracking-widest text-xs mb-4">
             Caribe colombiano · Plantas nativas
           </span>
@@ -25,7 +25,7 @@ export default async function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/catalogo"
-              className="inline-block bg-green-800 text-white px-8 py-3 rounded-full font-medium hover:bg-green-700 transition-colors"
+              className="inline-block bg-green-800 text-white px-6 py-3 sm:px-8 rounded-full font-medium hover:bg-green-700 transition-colors"
             >
               Explorar Catálogo
             </Link>
@@ -33,7 +33,7 @@ export default async function HomePage() {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border-2 border-green-800 text-green-800 px-8 py-3 rounded-full font-medium hover:bg-green-50 transition-colors"
+              className="inline-block border-2 border-green-800 text-green-800 px-6 py-3 sm:px-8 rounded-full font-medium hover:bg-green-50 transition-colors"
             >
               Hablar con un experto
             </a>
@@ -44,7 +44,7 @@ export default async function HomePage() {
       </section>
 
       {/* Value props */}
-      <section className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
         {[
           { icon: '🌴', title: 'Plantas nativas', desc: 'Especies del Caribe colombiano adaptadas al hogar.' },
           { icon: '👨‍🌾', title: 'Asesoría botánica', desc: 'Un experto te acompaña desde la primera hoja.' },
@@ -59,7 +59,7 @@ export default async function HomePage() {
       </section>
 
       {/* Featured plants */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
         <div className="flex justify-between items-end mb-10">
           <div>
             <span className="text-green-700 font-bold uppercase tracking-widest text-xs">
@@ -106,7 +106,7 @@ export default async function HomePage() {
       </section>
 
       {/* WhatsApp CTA */}
-      <section className="bg-stone-900 text-stone-100 py-16 px-6 text-center">
+      <section className="bg-stone-900 text-stone-100 py-16 px-4 sm:px-6 text-center">
         <h2 className="text-2xl font-serif mb-3 text-green-400">¿Dudas sobre cuál elegir?</h2>
         <p className="mb-8 opacity-80 max-w-md mx-auto">
           Escríbenos y te brindaremos asesoría en minutos. Gratis, sin compromisos.

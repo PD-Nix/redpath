@@ -47,7 +47,7 @@ export default async function CatalogoPage({
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Filters sidebar */}
-        <div className="lg:w-56 shrink-0">
+        <div className="w-full lg:w-72 shrink-0">
           <Suspense>
             <CatalogFilters />
           </Suspense>

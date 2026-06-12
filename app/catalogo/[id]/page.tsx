@@ -44,7 +44,7 @@ function PlantDetails({ plant }: { plant: NonNullable<Awaited<ReturnType<typeof 
   return (
     <div>
       <h2 className="font-bold text-stone-800 mb-3">Información de la planta</h2>
-      <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+      <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-sm">
         {rows.map((r) => (
           <div key={r.label}>
             <dt className="text-stone-400 font-medium">{r.label}</dt>
@@ -92,7 +92,7 @@ function CourseDetails({ course }: { course: NonNullable<Awaited<ReturnType<type
   return (
     <div>
       <h2 className="font-bold text-stone-800 mb-3">Detalles del curso</h2>
-      <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+      <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-sm">
         {rows.map((r) => (
           <div key={r.label}>
             <dt className="text-stone-400 font-medium">{r.label}</dt>
@@ -115,7 +115,7 @@ function ToolDetails({ tool }: { tool: NonNullable<Awaited<ReturnType<typeof get
   return (
     <div>
       <h2 className="font-bold text-stone-800 mb-3">Especificaciones</h2>
-      <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+      <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-sm">
         {rows.map((r) => (
           <div key={r.label}>
             <dt className="text-stone-400 font-medium">{r.label}</dt>
@@ -169,9 +169,9 @@ export default async function ProductoPage({
       </nav>
 
       {/* Main content */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16 items-start">
         {/* Image */}
-        <div className="relative aspect-square rounded-3xl overflow-hidden bg-stone-100">
+        <div className="relative aspect-square rounded-3xl overflow-hidden bg-stone-100 w-full">
           <Image
             src={product.urlPhoto}
             alt={product.name}
@@ -184,7 +184,7 @@ export default async function ProductoPage({
 
         {/* Info */}
         <div className="flex flex-col gap-5">
-          <div className="flex items-center gap-2 flex-wrap">
+          <div className="flex flex-wrap items-center gap-2">
             <Badge label={TYPE_LABELS[product.productType] ?? product.productType} variant={product.productType} />
             {product.plant?.difficulty && (
               <Badge label={product.plant.difficulty} variant={product.plant.difficulty} />

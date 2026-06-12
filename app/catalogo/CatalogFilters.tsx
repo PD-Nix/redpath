@@ -45,7 +45,7 @@ export function CatalogFilters() {
   };
 
   return (
-    <aside className="flex flex-col gap-6">
+    <aside className="flex flex-col gap-6 bg-white rounded-3xl border border-stone-200 p-4 shadow-sm sm:p-6">
       {/* Search */}
       <div>
         <label htmlFor="search-input" className="block text-xs font-semibold uppercase tracking-widest text-stone-500 mb-2">

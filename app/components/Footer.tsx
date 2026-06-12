@@ -7,7 +7,7 @@ export function Footer() {
 
   return (
     <footer className="bg-stone-900 text-stone-300 mt-auto">
-      <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand */}
         <div className="lg:col-span-2">
           <p className="text-white font-bold text-xl flex items-center gap-2 mb-3">
@@ -84,7 +84,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-stone-800 py-5 px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-stone-500">
+      <div className="border-t border-stone-800 py-5 px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-stone-500">
         <p>© {year} GreenPath · Todos los derechos reservados</p>
         <p>Hecho con 🌱 en Colombia</p>
       </div>
