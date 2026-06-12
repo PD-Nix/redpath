@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'sirv.com',
+        hostname: '*.sirv.com',
         pathname: '/**',
       }
     ],
