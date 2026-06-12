@@ -1,30 +1,25 @@
 // scripts/seed.ts
 // Uso: npx tsx scripts/seed.ts  (o "npm run seed")
 
-import Database from 'better-sqlite3';
-import { drizzle } from 'drizzle-orm/better-sqlite3';
-import { migrate } from 'drizzle-orm/better-sqlite3/migrator';
+import path from 'path';
+import { migrate } from 'drizzle-orm/libsql/migrator';
 import * as schema from '../lib/db/schema';
-import * as fs from 'fs';
-import * as path from 'path';
+import { db } from '../lib/db/index';
 
-const dataDir = path.join(process.cwd(), 'data');
-if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
-
-const dbPath = path.join(dataDir, 'database.db');
-const sqlite = new Database(dbPath);
-const db = drizzle(sqlite, { schema });
-
-// Ejecutar migraciones antes de insertar datos
-migrate(db, { migrationsFolder: path.join(process.cwd(), 'drizzle') });
+// Este script usa la misma conexión Turso/LibSQL que la app.
+// Asegúrate de tener DATABASE_URL y NEXT_DATABASE_TOKEN disponibles en el entorno.
 
 async function seed() {
+  console.log('🌿 Iniciando seed de GreenPath...');
+
+  // Ejecutar migraciones antes de insertar datos.
+  await migrate(db, { migrationsFolder: path.join(process.cwd(), 'drizzle') });
   console.log('🌿 Iniciando seed de GreenPath...\n');
 
   // ──────────────────────────────────────────────
   // PLANTAS
   // ──────────────────────────────────────────────
-  const plantProducts = db
+  const plantProducts = await db
     .insert(schema.products)
     .values([
       {
@@ -126,7 +121,7 @@ async function seed() {
   // ──────────────────────────────────────────────
   // KITS
   // ──────────────────────────────────────────────
-  const kitProducts = db
+  const kitProducts = await db
     .insert(schema.products)
     .values([
       {
@@ -166,7 +161,7 @@ async function seed() {
   // ──────────────────────────────────────────────
   // CURSOS
   // ──────────────────────────────────────────────
-  const courseProducts = db
+  const courseProducts = await db
     .insert(schema.products)
     .values([
       {
@@ -206,7 +201,7 @@ async function seed() {
   // ──────────────────────────────────────────────
   // HERRAMIENTAS
   // ──────────────────────────────────────────────
-  const toolProducts = db
+  const toolProducts = await db
     .insert(schema.products)
     .values([
       {
