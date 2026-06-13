@@ -198,12 +198,12 @@ export default async function ProductoPage({
           </div>
 
           <div>
-            <h1 className="text-3xl font-serif font-bold text-stone-900">{product.name}</h1>
+            <h1 className="text-3xl font-serif font-bold text-white-100 dark:text-stone-200">{product.name}</h1>
             <p className="text-3xl font-bold text-green-800 mt-2">{formattedPrice}</p>
           </div>
 
           {product.description && (
-            <p className="text-stone-600 leading-relaxed">{product.description}</p>
+            <p className="text-white-600 dark:text-stone-300 leading-relaxed">{product.description}</p>
           )}
 
           {/* Type-specific info */}
