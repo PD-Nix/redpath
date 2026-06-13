@@ -7,28 +7,81 @@ import { getSessionUser } from '@/app/registro/actions'; // Función para obtene
 export const revalidate = 0;
 
 interface PostDetalleProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
-export default async function PostDetallePage({ params }: PostDetalleProps) {
-  const postId = parseInt(params.id);
-  if (isNaN(postId)) notFound();
+export default async function PostDetallePage(props: PostDetalleProps) {
+  const { id: idParam } = await props.params;
+  const postId = parseInt(idParam);
+  if (isNaN(postId)) {
+    return (
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+        <h2 className="text-xl font-bold mb-4">ID inválido</h2>
+        <p>El parámetro proporcionado no es un número: {String(idParam)}</p>
+      </div>
+    );
+  }
 
-  // 1. Obtener la información de la publicación
-  const [post] = await db
-    .select({
-      id: posts.id,
-      title: posts.title,
-      content: posts.content,
-      imageUrl: posts.imageUrl,
-      createdAt: posts.createdAt,
-      authorName: users.fullName,
-    })
-    .from(posts)
-    .leftJoin(users, eq(posts.userId, users.id))
-    .where(eq(posts.id, postId));
+  // Intentamos obtener la publicación y capturamos cualquier error para depuración
+  let post: any = null;
+  let debugError: any = null;
+  let fallback: any = null;
 
-  if (!post) notFound();
+  try {
+    const [p] = await db
+      .select({
+        id: posts.id,
+        title: posts.title,
+        content: posts.content,
+        imageUrl: posts.imageUrl,
+        createdAt: posts.createdAt,
+        authorName: users.fullName,
+      })
+      .from(posts)
+      .leftJoin(users, eq(posts.userId, users.id))
+      .where(eq(posts.id, postId));
+
+    post = p || null;
+  } catch (err) {
+    debugError = err;
+  }
+
+  // Si no encontramos post, intentar una consulta simple por id para comparar resultados
+  if (!post && !debugError) {
+    try {
+      const [f] = await db.select({ id: posts.id }).from(posts).where(eq(posts.id, postId));
+      fallback = f || null;
+    } catch (err) {
+      // si falla también aquí, lo recogemos en debugError
+      debugError = err;
+    }
+  }
+
+  if (!post) {
+    // Renderizar información de depuración en lugar de lanzar notFound(), para investigar
+    return (
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+        <h2 className="text-xl font-bold mb-4">Depuración: publicación no encontrada</h2>
+        <p className="mb-2">ID solicitado: <strong>{postId}</strong></p>
+        <div className="mb-4">
+          <h3 className="font-semibold">Resultado de la consulta principal:</h3>
+          <pre className="whitespace-pre-wrap text-xs bg-stone-50 dark:bg-background p-3 rounded">{JSON.stringify(post, null, 2)}</pre>
+        </div>
+        <div className="mb-4">
+          <h3 className="font-semibold">Fallback (consulta simple por id):</h3>
+          <pre className="whitespace-pre-wrap text-xs bg-stone-50 dark:bg-background p-3 rounded">{JSON.stringify(fallback, null, 2)}</pre>
+        </div>
+        <div className="mb-4">
+          <h3 className="font-semibold">Error (si ocurrió):</h3>
+          <pre className="whitespace-pre-wrap text-xs bg-stone-50 dark:bg-background p-3 rounded">{String(debugError)}</pre>
+        </div>
+        <p className="text-sm text-stone-500">Si el registro existe en la base de datos pero aparece vacío aquí, puede deberse a diferencias en el cliente de DB usado en runtime o a que la página se está renderizando en otro entorno sin acceso a las credenciales.</p>
+        <div className="mt-4">
+          <Link href="/foro" className="text-green-700 underline">Volver al foro</Link>
+        </div>
+      </div>
+    );
+  }
 
   // 2. Obtener los comentarios asociados
   const listaComentarios = await db
