@@ -15,13 +15,13 @@ export default function SobreNosotrosPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
       {/* Hero */}
       <div className="text-center mb-14">
-        <span className="text-green-700 font-bold uppercase tracking-widest text-xs">
+        <span className="text-green-700 dark:text-green-400 font-bold uppercase tracking-widest text-xs">
           Nuestra historia
         </span>
-        <h1 className="text-4xl font-serif text-stone-900 mt-2 mb-4">
+        <h1 className="text-4xl font-serif text-white-300 dark:text-stone-200 mt-2 mb-4">
           Somos GreenPath
         </h1>
-        <p className="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg text-white-300 dark:text-stone-200 max-w-2xl mx-auto leading-relaxed">
           Nacimos del amor por las plantas tropicales del Caribe colombiano y de la
           convicción de que cualquier hogar puede convertirse en un jardín vivo con el
           acompañamiento correcto.
@@ -29,9 +29,9 @@ export default function SobreNosotrosPage() {
       </div>
 
       {/* Story */}
-      <section className="mb-12 bg-white rounded-3xl p-8 border border-stone-100 shadow-sm">
-        <h2 className="text-2xl font-serif text-stone-800 mb-4">¿Cómo empezamos?</h2>
-        <div className="text-stone-600 leading-relaxed space-y-4">
+      <section className="mb-12 bg-card rounded-3xl p-8 border border-stone-100 dark:border-card-border shadow-sm">
+        <h2 className="text-2xl font-serif text-white-300 dark:text-stone-200 mb-4">¿Cómo empezamos?</h2>
+        <div className="text-white-300 dark:text-stone-200 leading-relaxed space-y-4">
           <p>
             Todo comenzó con una palma de vino en un balcón de Barranquilla. Queríamos
             llevar un pedacito del Caribe a los hogares de Colombia, pero nos dimos
@@ -53,10 +53,10 @@ export default function SobreNosotrosPage() {
 
       {/* Values */}
       <section className="mb-12">
-        <h2 className="text-2xl font-serif text-stone-800 mb-6 text-center">
+        <h2 className="text-2xl font-serif text-white-300 dark:text-stone-200 mb-6 text-center">
           Lo que nos mueve
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {[
             {
               icon: '🌍',
@@ -76,30 +76,33 @@ export default function SobreNosotrosPage() {
           ].map((item) => (
             <div
               key={item.title}
-              className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm text-center"
+              className="bg-card rounded-2xl p-6 border border-stone-100 dark:border-card-border shadow-sm text-center transition-colors"
             >
               <div className="text-3xl mb-3">{item.icon}</div>
-              <h3 className="font-bold text-stone-800 mb-2">{item.title}</h3>
-              <p className="text-stone-500 text-sm leading-relaxed">{item.desc}</p>
+              <h3 className="font-bold text-white-800 dark:text-zinc-100 mb-2">{item.title}</h3>
+              <p className="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Team */}
-      <section className="mb-12 bg-green-50 rounded-3xl p-8 border border-green-100">
-        <h2 className="text-2xl font-serif text-stone-800 mb-6">Nuestro equipo</h2>
+      <section className="mb-12 bg-green-50/50 dark:bg-card rounded-3xl p-8 border border-green-100 dark:border-card-border transition-colors">
+        <h2 className="text-2xl font-serif text-stone-800 dark:text-zinc-100 mb-6">Nuestro equipo</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {[
             { name: 'Pedro Eli Diaz Olarte', role: 'Freelancer', emoji: '💻' },
             { name: 'Juan Francisco Cantillo Perez', role: 'Freelancer', emoji: '💻' },
             { name: 'Pedro Luis Carrascal Betin', role: 'Freelancer', emoji: '💻' },
           ].map((member) => (
-            <div key={member.name} className="flex items-center gap-4 bg-white rounded-2xl p-4 border border-stone-100 shadow-sm">
+            <div 
+              key={member.name} 
+              className="flex items-center gap-4 bg-white dark:bg-background rounded-2xl p-4 border border-stone-100 dark:border-card-border shadow-sm transition-colors"
+            >
               <div className="text-4xl leading-none flex-shrink-0">{member.emoji}</div>
               <div>
-                <p className="font-bold text-stone-800 text-sm">{member.name}</p>
-                <p className="text-stone-400 text-xs">{member.role}</p>
+                <p className="font-bold text-stone-800 dark:text-zinc-100 text-sm">{member.name}</p>
+                <p className="text-stone-400 dark:text-stone-400 text-xs">{member.role}</p>
               </div>
             </div>
           ))}
@@ -107,7 +110,7 @@ export default function SobreNosotrosPage() {
       </section>
 
       {/* CTA */}
-      <div className="text-center bg-stone-900 text-white rounded-3xl p-10">
+      <div className="text-center bg-stone-900 dark:bg-card border dark:border-card-border text-white rounded-3xl p-10">
         <h2 className="text-2xl font-serif mb-3 text-green-400">
           ¿Listos para empezar tu jardín?
         </h2>
