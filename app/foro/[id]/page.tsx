@@ -123,13 +123,13 @@ export default async function PostDetallePage(props: PostDetalleProps) {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
       {/* Botón de regreso */}
-      <Link href="/foro" className="text-green-700 dark:text-green-400 font-bold text-sm hover:underline flex items-center gap-1 mb-6">
+      <Link href="/foro" className="text-green-700 dark:text-green-400 font-bold text-sm hover:underline flex items-center gap-1 mb-6 transition-colors">
         ← Volver al foro
       </Link>
 
       {/* Post Principal */}
       <article className="bg-card rounded-3xl p-6 sm:p-8 border border-stone-100 dark:border-card-border shadow-sm mb-8">
-        <h1 className="text-2xl sm:text-3xl font-serif font-bold text-stone-800 dark:text-white mb-3">
+        <h1 className="text-2xl sm:text-3xl font-serif font-bold text-stone-800 dark:text-white mb-3 transition-colors">
           {post.title}
         </h1>
         <div className="flex items-center justify-between text-xs text-stone-400 dark:text-stone-500 pb-6 border-b dark:border-card-border mb-6">

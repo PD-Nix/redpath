@@ -38,10 +38,13 @@ export default function RegistroPage() {
   return (
     <div className="max-w-md mx-auto px-4 py-12">
       <div className="bg-card rounded-3xl p-6 sm:p-8 border border-stone-100 dark:border-card-border shadow-sm">
-        <h1 className="text-2xl font-serif text-stone-800 dark:text-white mb-2 text-center">
+        <span className="text-green-700 dark:text-green-400 font-bold uppercase tracking-widest text-xs transition-colors">
+          GreenPath
+        </span>
+        <h1 className="text-3xl font-serif text-stone-800 dark:text-white mb-2 text-center transition-colors">
           Crear Cuenta Comunidad
         </h1>
-        <p className="text-stone-500 dark:text-stone-400 text-sm mb-6 text-center">
+        <p className="text-stone-500 dark:text-stone-400 text-sm mb-6 text-center transition-colors">
           Regístrate para poder publicar y responder en el foro de GreenPath.
         </p>
 
@@ -57,7 +60,7 @@ export default function RegistroPage() {
               name="fullName"
               required
               placeholder="Ej. Pedro Eli"
-              className="w-full bg-white dark:bg-background rounded-xl p-3 text-stone-800 dark:text-white border border-stone-200 dark:border-card-border focus:outline-none focus:border-green-600 dark:focus:border-green-500 text-sm"
+              className="w-full bg-stone dark:bg-background rounded-xl p-3 text-stone-800 dark:text-white border border-stone-200 dark:border-card-border focus:outline-none focus:border-green-600 dark:focus:border-green-500 text-sm"
             />
           </div>
 
@@ -72,7 +75,7 @@ export default function RegistroPage() {
               name="email"
               required
               placeholder="pedro@ejemplo.com"
-              className="w-full bg-white dark:bg-background rounded-xl p-3 text-stone-800 dark:text-white border border-stone-200 dark:border-card-border focus:outline-none focus:border-green-600 dark:focus:border-green-500 text-sm"
+              className="w-full bg-stone dark:bg-background rounded-xl p-3 text-stone-800 dark:text-white border border-stone-200 dark:border-card-border focus:outline-none focus:border-green-600 dark:focus:border-green-500 text-sm"
             />
           </div>
 
@@ -87,7 +90,7 @@ export default function RegistroPage() {
               name="password"
               required
               placeholder="••••••••"
-              className="w-full bg-white dark:bg-background rounded-xl p-3 text-stone-800 dark:text-white border border-stone-200 dark:border-card-border focus:outline-none focus:border-green-600 dark:focus:border-green-500 text-sm"
+              className="w-full bg-stone dark:bg-background rounded-xl p-3 text-stone-800 dark:text-white border border-stone-200 dark:border-card-border focus:outline-none focus:border-green-600 dark:focus:border-green-500 text-sm"
             />
           </div>
 

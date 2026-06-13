@@ -44,13 +44,13 @@ export default async function ForoPage() {
       {/* Encabezado */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 border-b dark:border-card-border pb-6">
         <div>
-          <span className="text-green-700 dark:text-green-400 font-bold uppercase tracking-widest text-xs">
+          <span className="text-green-700 dark:text-green-400 font-bold uppercase tracking-widest text-xs transition-colors">
             Comunidad GreenPath
           </span>
-          <h1 className="text-3xl font-serif text-stone-800 dark:text-white mt-1">
+          <h1 className="text-3xl font-serif text-stone-800 dark:text-white mt-1 transition-colors">
             Foro de Naturaleza
           </h1>
-          <p className="text-stone-500 dark:text-stone-400 text-sm mt-1">
+          <p className="text-stone-500 dark:text-stone-400 text-sm mt-1 transition-colors">
             Comparte tus dudas, consejos y experiencias sobre plantas del Caribe.
           </p>
         </div>

@@ -42,10 +42,13 @@ export default function NuevoPostPage() {
       </Link>
 
       <div className="bg-card rounded-3xl p-6 sm:p-8 border border-stone-100 dark:border-card-border shadow-sm">
-        <h1 className="text-2xl font-serif text-stone-800 dark:text-white mb-2">
+        <span className="text-green-700 dark:text-green-400 font-bold uppercase tracking-widest text-xs transition-colors">
+          Comunidad GreenPath
+        </span>
+        <h1 className="text-3xl font-serif text-stone-800 dark:text-white mb-2 transition-colors">
           Crear nueva publicación
         </h1>
-        <p className="text-stone-500 dark:text-stone-400 text-sm mb-6">
+        <p className="text-stone-500 dark:text-stone-400 text-sm mb-6 transition-colors">
           Comparte tus preguntas o saberes con la comunidad de GreenPath.
         </p>
 
