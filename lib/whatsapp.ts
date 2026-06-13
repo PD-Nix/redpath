@@ -1,4 +1,4 @@
-const RAW_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '+5732337288547';
+const RAW_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '+573233728547';
 const WA_NUMBER = RAW_NUMBER.replace(/[^0-9]/g, '');
 
 export function buildWhatsAppUrl(message?: string): string {

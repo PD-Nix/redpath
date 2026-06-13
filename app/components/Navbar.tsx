@@ -6,6 +6,7 @@ import { useCart } from './CartContext';
 import { useTheme } from './ThemeContext';
 
 const NAV_LINKS = [
+  { href: '/foro', label: 'Foro' },
   { href: '/catalogo', label: 'Catálogo' },
   { href: '/catalogo?tipo=course', label: 'Cursos' },
   { href: '/catalogo?tipo=kit', label: 'Kits' },

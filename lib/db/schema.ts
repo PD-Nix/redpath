@@ -110,6 +110,31 @@ export const orderItems = sqliteTable('order_items', {
   isCourseAccess: integer('is_course_access', { mode: 'boolean' }).default(false), // compra individual de curso
 });
 
+export const posts = sqliteTable('posts', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  title: text('title').notNull(),
+  content: text('content').notNull(),
+  // 🪟 El "hueco de la ventana": opcional, no lleva .notNull()
+  imageUrl: text('image_url'), 
+  userId: integer('user_id')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  createdAt: integer('created_at', { mode: 'timestamp' }).default(new Date()),
+});
+
+// Tabla para las Respuestas/Comentarios
+export const comments = sqliteTable('comments', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  postId: integer('post_id')
+    .notNull()
+    .references(() => posts.id, { onDelete: 'cascade' }),
+  userId: integer('user_id')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  content: text('content').notNull(),
+  createdAt: integer('created_at', { mode: 'timestamp' }).default(new Date()),
+});
+
 // ---------- RELACIONES ----------
 export const usersRelations = relations(users, ({ many }) => ({
   orders: many(orders),

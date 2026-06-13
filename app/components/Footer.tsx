@@ -19,10 +19,10 @@ export function Footer() {
           </p>
           {/* Social placeholders */}
           <div className="flex gap-3 mt-5">
-            {['Instagram', 'TikTok', 'Facebook'].map((s) => (
+            {['TikTok'].map((s) => (
               <a
                 key={s}
-                href="#"
+                href="https://www.tiktok.com/@greenpath_ecommers"
                 aria-label={s}
                 className="text-xs px-3 py-1.5 rounded-full border border-stone-700 dark:border-slate-700 hover:border-green-500 dark:hover:border-green-400 hover:text-green-400 dark:hover:text-green-300 transition-colors"
               >
