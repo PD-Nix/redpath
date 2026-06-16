@@ -86,6 +86,85 @@ export default function SobreNosotrosPage() {
         </div>
       </section>
 
+      {/* Data Treatment Policy */}
+      <section className="mb-12 bg-card rounded-3xl p-8 border border-stone-100 dark:border-card-border shadow-sm">
+        <h2 className="text-2xl font-serif text-white-300 dark:text-stone-200 mb-4">
+          Política de Tratamiento de Datos Personales
+        </h2>
+        <p className="text-white-300 dark:text-stone-200 leading-relaxed mb-6">
+          En GreenPath nos comprometemos a proteger tu información personal conforme a la
+          Ley 1581 de 2012 y el Decreto 1377 de 2013 de Colombia.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          {[
+            {
+              title: 'Responsable',
+              desc: 'GreenPath es el responsable del tratamiento de tus datos. Contáctanos en Greenpahtecommers@gmail.com.',
+            },
+            {
+              title: 'Datos recopilados',
+              desc: 'Información que nos suministras voluntariamente, datos de navegación (IP, tipo de navegador, páginas visitadas) y cookies analíticas.',
+            },
+            {
+              title: 'Finalidades',
+              desc: 'Prestar servicios, gestionar contactos, mejorar la plataforma, analizar navegación y mantener la seguridad. No comercializamos ni vendemos tus datos.',
+            },
+            {
+              title: 'Tus derechos',
+              desc: 'Puedes conocer, actualizar, rectificar, revocar o solicitar la supresión de tus datos. También presentar quejas ante la Superintendencia de Industria y Comercio.',
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="bg-white dark:bg-background rounded-2xl p-5 border border-stone-100 dark:border-card-border transition-colors"
+            >
+              <h3 className="font-bold text-stone-800 dark:text-zinc-100 mb-1 text-sm uppercase tracking-wider">
+                {item.title}
+              </h3>
+              <p className="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <details className="group">
+          <summary className="text-green-700 dark:text-green-400 font-semibold cursor-pointer hover:underline text-sm">
+            Ver política completa
+          </summary>
+          <div className="mt-4 text-white-300 dark:text-stone-200 text-sm leading-relaxed space-y-4">
+            <h3 className="font-bold text-base">Almacenamiento y Seguridad</h3>
+            <p>
+              La información se almacena mediante proveedores tecnológicos especializados.
+              Adoptamos medidas razonables de seguridad contra accesos no autorizados,
+              pérdida o divulgación indebida.
+            </p>
+
+            <h3 className="font-bold text-base">Uso de Herramientas de Analítica</h3>
+            <p>
+              Utilizamos herramientas de análisis y medición de tráfico para comprender el
+              comportamiento de los usuarios, evaluar el desempeño de la plataforma y
+              mejorar la experiencia ofrecida.
+            </p>
+
+            <h3 className="font-bold text-base">Modificaciones y Vigencia</h3>
+            <p>
+              Esta política puede actualizarse por cambios normativos, tecnológicos o
+              funcionales. Las modificaciones se publicarán en nuestros canales oficiales.
+              La política entra en vigor desde su publicación y permanece vigente mientras
+              GreenPath realice tratamiento de datos personales.
+            </p>
+
+            <p className="text-stone-400 dark:text-stone-500 text-xs pt-2">
+              Para consultas o reclamos, escríbenos a Greenpahtecommers@gmail.com. Las
+              solicitudes serán atendidas dentro de los plazos establecidos por la
+              legislación colombiana vigente.
+            </p>
+          </div>
+        </details>
+      </section>
+
       {/* Team */}
       <section className="mb-12 bg-green-50/50 dark:bg-card rounded-3xl p-8 border border-green-100 dark:border-card-border transition-colors">
         <h2 className="text-2xl font-serif text-stone-800 dark:text-zinc-100 mb-6">Nuestro equipo</h2>
